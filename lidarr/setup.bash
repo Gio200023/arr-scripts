@@ -31,14 +31,18 @@ apk add -U --upgrade --no-cache \
   opustags \
   python3-dev \
   libc-dev \
-  uv \
+  #uv \
+  build-base \
+  libffi-dev \
+  py3-pip \
   parallel \
   npm && \
 echo "*** install freyr client ***" && \
 apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley && \
 npm install -g miraclx/freyr-js &&\
 echo "*** install python packages ***" && \
-uv pip install --system --upgrade --no-cache-dir --break-system-packages \
+#uv 
+ python3 -m pip install --system --upgrade --no-cache-dir --break-system-packages \
   jellyfish \
   beautifulsoup4 \
   yt-dlp \
@@ -67,7 +71,8 @@ touch ${SMA_PATH}/config/sma.log && \
 chgrp users ${SMA_PATH}/config/sma.log && \
 chmod g+w ${SMA_PATH}/config/sma.log && \
 echo "************ install pip dependencies ************" && \
-uv pip install --system --break-system-packages -r ${SMA_PATH}/setup/requirements.txt
+#uv
+python3 -m pip install --system --break-system-packages -r ${SMA_PATH}/setup/requirements.txt
 
 mkdir -p /custom-services.d/python /config/extended
 
