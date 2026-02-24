@@ -43,30 +43,30 @@ set -euo pipefail
 #apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley && \
 #npm install -g miraclx/freyr-js &&\
 
-echo "*** create python venv ***" && \
-python3 -m venv /config/venv && \
-. /config/venv/bin/activate && \
-pip install --upgrade pip && \
+#echo "*** create python venv ***" && \
+#python3 -m venv /config/venv && \
+#. /config/venv/bin/activate && \
+#pip install --upgrade pip && \
 
-echo "*** install python packages ***" && \
-pip install --no-cache-dir \
-  jellyfish \
-  beautifulsoup4 \
-  yt-dlp \
-  beets \
-  yq \
-  pyxDamerauLevenshtein \
-  pyacoustid \
-  requests \
-  colorama \
-  python-telegram-bot \
-  pylast \
-  mutagen \
-  r128gain \
-  tidal-dl \
-  deemix \
-  langdetect \
-  apprise  && \
+#echo "*** install python packages ***" && \
+#pip install --no-cache-dir \
+#  jellyfish \
+#  beautifulsoup4 \
+#  yt-dlp \
+#  beets \
+#  yq \
+#  pyxDamerauLevenshtein \
+#  pyacoustid \
+#  requests \
+#  colorama \
+#  python-telegram-bot \
+#  pylast \
+#  mutagen \
+#  r128gain \
+#  tidal-dl \
+#  deemix \
+#  langdetect \
+#  apprise  && \
 echo "************ setup SMA ************"
 if [ -d "${SMA_PATH}"  ]; then
   rm -rf "${SMA_PATH}"
