@@ -15,33 +15,33 @@ echo "setupversion=$scriptVersion" > /config/setup_version.txt
 
 set -euo pipefail
 
-echo "*** install packages ***" && \
-apk add -U --upgrade --no-cache \
-  tidyhtml \
-  musl-locales \
-  musl-locales-lang \
-  flac \
-  llvm-dev\
-  clang \
-  musl-dev \
-  jq \
-  xq \
-  git \
-  gcc \
-  ffmpeg \
-  imagemagick \
-  opus-tools \
-  opustags \
-  python3-dev \
-  libc-dev \
-  build-base \
-  libffi-dev \
-  py3-pip \
-  parallel \
-  npm && \
-echo "*** install freyr client ***" && \
-apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley && \
-npm install -g miraclx/freyr-js &&\
+#echo "*** install packages ***" && \
+#apk add -U --upgrade --no-cache \
+#  tidyhtml \
+#  musl-locales \
+#  musl-locales-lang \
+#  flac \
+#  llvm-dev\
+#  clang \
+#  musl-dev \
+#  jq \
+#  xq \
+#  git \
+#  gcc \
+#  ffmpeg \
+#  imagemagick \
+#  opus-tools \
+#  opustags \
+#  python3-dev \
+#  libc-dev \
+#  build-base \
+#  libffi-dev \
+#  py3-pip \
+#  parallel \
+#  npm && \
+#echo "*** install freyr client ***" && \
+#apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley && \
+#npm install -g miraclx/freyr-js &&\
 
 echo "*** create python venv ***" && \
 python3 -m venv /config/venv && \
