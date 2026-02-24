@@ -21,6 +21,9 @@ apk add -U --upgrade --no-cache \
   musl-locales \
   musl-locales-lang \
   flac \
+  llvm-dev\
+  clang \
+  musl-dev \
   jq \
   xq \
   git \
@@ -39,8 +42,14 @@ apk add -U --upgrade --no-cache \
 echo "*** install freyr client ***" && \
 apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley && \
 npm install -g miraclx/freyr-js &&\
+
+echo "*** create python venv ***" && \
+python3 -m venv /config/venv && \
+. /config/venv/bin/activate && \
+pip install --upgrade pip && \
+
 echo "*** install python packages ***" && \
-python3 -m pip install --system --upgrade --no-cache-dir --break-system-packages \
+pip install --no-cache-dir \
   jellyfish \
   beautifulsoup4 \
   yt-dlp \
@@ -68,8 +77,12 @@ echo "************ create logging file ************" && \
 touch ${SMA_PATH}/config/sma.log && \
 chgrp users ${SMA_PATH}/config/sma.log && \
 chmod g+w ${SMA_PATH}/config/sma.log && \
+
+echo "*** sourcing python venv ***" && \
+. /config/venv/bin/activate && \
+
 echo "************ install pip dependencies ************" && \
-python3 -m pip install --system --break-system-packages -r ${SMA_PATH}/setup/requirements.txt
+pip install -r ${SMA_PATH}/setup/requirements.txt
 
 mkdir -p /custom-services.d/python /config/extended
 
